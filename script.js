@@ -32,3 +32,19 @@ form.addEventListener("submit", (e) => {
     form.requestFullscreen();
     input.focus();
 });
+
+list.addEventListener("click", (e) => {
+    const li = e.target.closest ("li");
+    if (!li) return;
+
+    const id = li.datase.id;
+
+    if (e.target.matches(".toggle")) {
+        tasks = tasks.map(t => t.id === id ? {...t, done: !t.done } : t);
+    }
+
+    if (e.target.matches(".remove-btn")) {
+        tasks =tasks.filter(t => t.id !== id);
+}
+save(tasks); render(tasks);
+});
